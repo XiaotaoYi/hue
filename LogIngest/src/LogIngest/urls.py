@@ -15,11 +15,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from desktop.lib.django_util import render
-import datetime
+from django.conf.urls import url
 
-def index(request):
-  return render('index.mako', request, {
-    'date': datetime.datetime.now(),
-    'is_embeddable': request.GET.get('is_embeddable', False),
-  })
+from LogIngest import views
+
+
+urlpatterns = [
+  url(r'^$', views.index, name='ingest_logs_index'),
+  url(r'^data$', views.data, name='ingest_logs_data'),
+]

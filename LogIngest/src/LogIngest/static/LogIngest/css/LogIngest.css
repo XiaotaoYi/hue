@@ -1,5 +1,5 @@
 /*
-	HueLogs styles
+	LogIngest styles
 	important: these should be namespaced
 	example:
 		let's say you are creating an app called "calculator"; you should prefix all your styles with your application's name like so
@@ -18,7 +18,7 @@
 	  any elements inside it should also be absolutely positioned
 */
 
-.HueLogs img.HueLogs_icon {
+.LogIngest img.LogIngest_icon {
 	width: 55px;
 	height: 55px;
 	position: absolute;

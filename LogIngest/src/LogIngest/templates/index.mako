@@ -2,16 +2,15 @@
 <%namespace name="shared" file="shared_components.mako" />
 
 %if not is_embeddable:
-${commonheader("Traffic", "Traffic", user, request) | n,unicode}
+${commonheader("Logingest", "LogIngest", user, request) | n,unicode}
 %endif
 
 ${shared.menubar(section='mytab')}
 
-
 <div class="container-fluid">
   <div class="card">
     <h2 class="card-heading simple">
-      Traffic app - Kafka SQL equivalent
+      Ingest Raw Logs
     </h2>
     <p>
       The traffic example is a pipeline that retrieves measurements of traffic congestion and stores an aggregated view of the traffic congestion
@@ -20,7 +19,16 @@ ${shared.menubar(section='mytab')}
     </p>
 
     <h2 class="card-heading simple">
-      Checklist
+      Batch
+    </h2>
+    <div class="card-body">
+      <p>Has Sqoop Service: ${ has_kafka_service }</p>
+      <p>Has Impala: ${ has_kudu_service }</p>
+      <p>Has table <a class="button">Create</a></p>
+    </div>
+
+    <h2 class="card-heading simple">
+      Live
     </h2>
     <div class="card-body">
       <p>Has Kafka Service: ${ has_kafka_service }</p>

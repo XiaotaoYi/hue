@@ -17,13 +17,13 @@ def is_selected(section, matcher):
         <div class="nav-collapse">
           <ul class="nav">
             <li class="app-header">
-              <a href="/HueLogs">
-                <img src="${ static('HueLogs/art/icon_HueLogs_48.png') }" class="app-icon"  alt="${ _('App icon') }"/>
-                Huelogs
+              <a href="/LogIngest">
+                <img src="${ static('LogIngest/art/icon_LogIngest_48.png') }" class="app-icon"  alt="${ _('App icon') }"/>
+                Logingest
               </a>
              </li>
-             <li class="${is_selected(section, 'mytab')}"><a href="#">Tab 1</a></li>
-             <li class="${is_selected(section, 'mytab2')}"><a href="#">Tab 2</a></li>
+             <li class="${is_selected(section, 'mytab')}"><a href="#">Services</a></li>
+             <li class="${is_selected(section, 'mytab2')}"><a href="/hue/dashboard/new_search">Dashboard</a></li>
           </ul>
         </div>
       </div>

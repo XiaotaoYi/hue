@@ -45,13 +45,13 @@ ${ notebookKoComponents.downloadSnippetResults() }
         <div class="nav-collapse">
           <ul class="nav">
             <li class="app-header">
-              <a href="/ApacheLogs">
-                <img src="${ static('ApacheLogs/art/icon_ApacheLogs_48.png') }" class="app-icon"  alt="${ _('App icon') }"/>
+              <a href="/LogIngest">
+                <img src="${ static('LogIngest/art/icon_LogIngest_48.png') }" class="app-icon"  alt="${ _('App icon') }"/>
                 Apachelogs
               </a>
             </li>
-            <li class="${is_selected('mytab', 'mytab2')}"><a href="${ url('apache_logs_index') }">Install</a></li>
-            <li class="${is_selected('mytab1', 'mytab1')}"><a href="${ url('apache_logs_dashboard') }?is_embeddable=true">Dahsboard</a></li>
+            <li class="${is_selected('mytab', 'mytab2')}"><a href="${ url('ingest_logs_index') }">Install</a></li>
+            <li class="${is_selected('mytab1', 'mytab1')}"><a href="/hue/dashboard/new_search?is_embeddable=true">Dahsboard</a></li>
           </ul>
         </div>
       </div>

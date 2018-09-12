@@ -26,7 +26,7 @@ def expand_package_data(src_dirs, strip=""):
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 setup(
-  name = "HueLogs",
+  name = "LogIngest",
   version = "0.1",
   url = 'TODO',
   description = 'TODO',
@@ -34,14 +34,14 @@ setup(
   packages = find_packages('src'),
   package_dir = {'': 'src'},
   install_requires = ['setuptools', 'desktop'],
-  entry_points = { 'desktop.sdk.application': 'HueLogs=HueLogs' },
+  entry_points = { 'desktop.sdk.application': 'LogIngest=LogIngest' },
   zip_safe = False,
   package_data = {
     # Include static resources.  Package_data doesn't
     # deal well with directory globs, so we enumerate
     # the files manually.
-    'HueLogs': expand_package_data(
-      ["src/HueLogs/templates", "src/HueLogs/static"],
-      "src/HueLogs/")
+    'LogIngest': expand_package_data(
+      ["src/LogIngest/templates", "src/LogIngest/static"],
+      "src/LogIngest/")
   }
 )
