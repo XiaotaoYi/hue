@@ -979,7 +979,7 @@ ${ sqlSyntaxDropdown.sqlSyntaxDropdown() }
 </script>
 
 <script type="text/html" id="snippet-header-database-selection">
-  <!-- ko if: isSqlDialect() || type() == 'spark2' -->
+  <!-- ko if: isSqlDialect() || type() == 'spark2' || type() == 'pyspark' -->
     <!-- ko component: {
       name: 'hue-context-selector',
       params: {

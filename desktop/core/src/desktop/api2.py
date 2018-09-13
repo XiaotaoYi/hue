@@ -152,7 +152,7 @@ def get_context_computes(request, interface):
         } for cluster in AnalyticDbApi(request.user).list_clusters()['clusters'] if cluster.get('status') == 'CREATED' and cluster.get('cdhVersion') >= 'CDH515']
       )
 
-  if interface == 'oozie' or interface == 'spark2':
+  if interface == 'oozie' or interface == 'spark2' or interface == 'pyspark':
     if [cluster for cluster in clusters if cluster['type'] == 'altus']:
       computes.extend([{
           'id': cluster.get('crn'),
