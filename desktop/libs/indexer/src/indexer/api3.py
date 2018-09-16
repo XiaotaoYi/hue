@@ -263,6 +263,8 @@ def guess_field_types(request):
         kafkaFieldTypes = [
           'string'
         ] * len(kafkaFieldNames)
+        kafkaFieldNames.append('timeDate')
+        kafkaFieldTypes.append('date')
       else:
         kafkaFieldNames = file_format.get('kafkaFieldNames', '').split(',')
         kafkaFieldTypes = file_format.get('kafkaFieldTypes', '').split(',')
@@ -477,13 +479,16 @@ def _large_indexing(request, file_format, collection_name, query=None, start_tim
 
   client = SolrClient(user=request.user)
 
-  if not client.exists(collection_name):
+  if not client.exists(collection_name): # if destination['isTargetExisting']:
     client.create_index(
       name=collection_name,
       fields=request.POST.get('fields', schema_fields),
       unique_key_field=unique_field
       # No df currently
     )
+  else:
+    # TODO: check if format matches
+    pass
 
   if file_format['inputFormat'] == 'table':
     db = dbms.get(request.user)
@@ -570,13 +575,14 @@ def _envelope_job(request, file_format, destination, start_time=None, lib_path=N
     elif destination['outputFormat'] == 'index':
       properties['collectionName'] = collection_name
       properties['connection'] = SOLR_URL.get()
-      if destination['isTargetExisting']:
-        # Todo: check if format matches
-        pass
-      else:
-        client = SolrClient(request.user)
-        kwargs = {}
-        _create_solr_collection(request.user, request.fs, client, destination, collection_name, kwargs)
+# No needed anymore
+#       if destination['isTargetExisting']:
+#         # Todo: check if format matches
+#         pass
+#       else:
+#         client = SolrClient(request.user)
+#         kwargs = {}
+#         _create_solr_collection(request.user, request.fs, client, destination, collection_name, kwargs)
 
   if destination['outputFormat'] == 'stream':
     manager = ManagerApi()
