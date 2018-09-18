@@ -10,7 +10,7 @@ ${shared.menubar(section='mytab')}
 <div class="container-fluid">
   <div class="card">
     <h2 class="card-heading simple">
-      Ingest Raw Logs
+      Ingest Apache Logs
     </h2>
     <p>
       The traffic example is a pipeline that retrieves measurements of traffic congestion and stores an aggregated view of the traffic congestion
@@ -19,23 +19,23 @@ ${shared.menubar(section='mytab')}
     </p>
 
     <h2 class="card-heading simple">
-      Batch
+      Stack
     </h2>
     <div class="card-body">
-      <p>Has Sqoop Service: ${ has_kafka_service }</p>
-      <p>Has Impala: ${ has_kudu_service }</p>
-      <p>Has table <a class="button">Create</a></p>
+      <p>
+        Source Hosts <input type="text">
+      </p>
+      <p>Destination Search + Kudu + Spark Streaming operations</p>
+      <p>Has Kafka Service: ${ has_kafka_service }</p>
+      <p>Has Kafka traffic topic: ${ has_kafka_topic } <a class="btn">Create</a></p>
+      <p>Has Kudu: ${ has_kudu_service }</p>
+      <p>Has SLA: False</p>
+      <p>
+        <a class="btn">Launch Stack</a>
+        <a class="btn">Show Stack</a>
+      </p>
     </div>
 
-    <h2 class="card-heading simple">
-      Live
-    </h2>
-    <div class="card-body">
-      <p>Has Kafka Service: ${ has_kafka_service }</p>
-      <p>Has Kafka traffic topic: ${ has_kafka_topic } <a class="button">Create</a></p>
-      <p>Has Kudu: ${ has_kudu_service }</p>
-      <p>Has table <a class="button">Create</a></p>
-    </div>
   </div>
 </div>
 
